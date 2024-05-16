@@ -1,1 +1,1 @@
-# repo_template
+# PROJECT_NAME
