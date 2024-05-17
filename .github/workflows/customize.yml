@@ -2,9 +2,10 @@ name: Customize Repository
 
 on:
   workflow_dispatch:
-  push:
-    branches:
-      - main
+    inputs:
+      myInput1:
+        description: 'Input 1'
+        required: true
 
 jobs:
   customize:
@@ -16,7 +17,7 @@ jobs:
       # Add your customization steps here
       - run: |
           # Replace placeholders, update files, etc.
-          sed -i 's/PROJECT_NAME/${{ github.event.repository.name }}/g' README.md
+          sed -i 's/PROJECT_NAME/${{ github.event.inputs.myInput1 }}/g' README.md
           
       - name: Commit changes
         uses: EndBug/add-and-commit@v9
